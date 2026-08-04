@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leon Frick – artist, låtskriver og produsent</title>
+  <meta name="description" content="Leon Frick er artist, låtskriver og produsent i Bergen. Hør musikken, se samarbeid, les tekster og ta kontakt." />
+  <meta name="theme-color" content="#110c0c" />
+  <link rel="canonical" href="https://www.leonfrick.no/" />
+  <style>
+    :root {
+      --bg: #0f0b0b;
+      --bg-2: #171111;
+      --panel: rgba(27, 20, 20, 0.72);
+      --panel-2: rgba(20, 14, 14, 0.88);
+      --line: rgba(255,255,255,0.08);
+      --line-soft: rgba(255,255,255,0.04);
+      --text: #f6f0eb;
+      --muted: #d7c9bf;
+      --muted-2: #b9a79b;
+      --accent: #f6ede6;
+      --glow-1: rgba(200, 92, 36, 0.45);
+      --glow-2: rgba(120, 33, 28, 0.52);
+      --button: #f3f0ed;
+      --button-text: #17100f;
+      --radius-xl: 34px;
+      --radius-lg: 28px;
+      --radius-md: 22px;
+      --container: 1500px;
+      --shadow: 0 28px 80px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(180,85,35,.18), transparent 22%),
+        radial-gradient(circle at 88% 12%, rgba(101,25,22,.18), transparent 24%),
+        linear-gradient(180deg, #100b0b 0%, #120e0e 45%, #0f0b0b 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 94px 94px;
+      opacity: .22;
+      mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.7) 10%, rgba(0,0,0,1) 100%);
+      animation: gridMove 34s linear infinite;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -10%;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 12% 22%, rgba(255,214,176,.08), transparent 18%),
+        radial-gradient(circle at 72% 68%, rgba(204,88,30,.12), transparent 20%),
+        radial-gradient(circle at 92% 22%, rgba(115,18,18,.18), transparent 18%);
+      filter: blur(34px);
+      animation: drift 20s ease-in-out infinite alternate;
+    }
+    @keyframes gridMove { from { transform: translate3d(0,0,0);} to { transform: translate3d(-94px, -94px, 0);} }
+    @keyframes drift { 0% { transform: translate3d(0,0,0) scale(1);} 50% { transform: translate3d(1.5%, -1%, 0) scale(1.04);} 100% { transform: translate3d(-1.3%, 1.5%, 0) scale(1.02);} }
+    @media (prefers-reduced-motion: reduce) { html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+
+    a { color: inherit; text-decoration: none; }
+    img { display:block; max-width:100%; }
+    .container { width:min(var(--container), calc(100% - 2rem)); margin:0 auto; }
+    .glass { background: var(--panel); backdrop-filter: blur(18px); border:1px solid var(--line); box-shadow: var(--shadow); }
+
+    .hero-wrap { padding: 1rem 0 1.2rem; }
+    .hero-shell {
+      position: relative;
+      min-height: 100svh;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: #140f0f;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(240,184,130,.35) 0%, transparent 22%, transparent 52%, rgba(112,19,18,.28) 100%),
+        linear-gradient(180deg, rgba(12,10,10,.3) 0%, rgba(13,10,10,.54) 40%, rgba(13,10,10,.72) 100%),
+        url('assets/images/leon-hero.jpg') center/cover no-repeat;
+      transform: scale(1.08);
+      filter: saturate(1.02) contrast(1.04) blur(1px);
+    }
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 22%, rgba(255,220,186,.22), transparent 18%),
+        radial-gradient(circle at 85% 22%, rgba(131,20,18,.24), transparent 24%),
+        linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 100%);
+      background-size: auto, auto, 12.5% 100%;
+      mix-blend-mode: screen;
+      opacity: .38;
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(16,12,12,.08), rgba(16,12,12,.68) 70%);
+      z-index: 0;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.55rem;
+    }
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      font-size: clamp(1.6rem, 2vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+    .menu-button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: clamp(1rem, 1.2vw, 1.15rem);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: .5rem .2rem;
+    }
+    .hero-content {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding: 4rem 1rem 4.5rem;
+      gap: 1.2rem;
+      margin: auto 0;
+    }
+    .eyebrow {
+      font-size: clamp(.9rem, 1.05vw, 1.1rem);
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: rgba(246,240,235,.92);
+      text-wrap: balance;
+    }
+    .hero-title {
+      margin: 0;
+      max-width: 12ch;
+      font-size: clamp(3rem, 5.2vw, 5.8rem);
+      line-height: 1.06;
+      font-weight: 400;
+      letter-spacing: -.05em;
+      text-wrap: balance;
+    }
+    .hero-sub {
+      margin: 0;
+      max-width: 25ch;
+      font-size: clamp(1.2rem, 2vw, 1.75rem);
+      color: rgba(246,240,235,.88);
+      text-wrap: balance;
+    }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; padding-top:.6rem; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:.8rem;
+      min-width: 240px; padding: 1.2rem 1.8rem;
+      border-radius: 999px; border:1px solid rgba(255,255,255,.14);
+      font-size: clamp(.95rem, 1.2vw, 1.1rem); font-weight:700;
+      transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--button); color: var(--button-text); }
+    .btn-primary:hover { background: #fff; }
+    .btn-ghost { background: rgba(255,255,255,.04); }
+    .btn-ghost:hover { background: rgba(255,255,255,.08); }
+    .hero-proof {
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.9rem;
+      color: rgba(246,240,235,.9); font-size: clamp(1rem,1.1vw,1.15rem);
+    }
+    .stars { letter-spacing: .3em; font-size: 1.05rem; }
+    .hero-bottom {
+      display:flex; justify-content:space-between; gap:1rem; align-items:flex-end;
+      color: rgba(246,240,235,.72); font-size:.85rem; text-transform:uppercase; letter-spacing:.18em;
+    }
+
+    .menu-panel {
+      position: absolute; top: 5.1rem; right: 1.5rem; width:min(320px, calc(100% - 3rem));
+      border-radius: 24px; padding: 1rem; z-index: 10;
+      background: rgba(17,12,12,.92); backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 22px 60px rgba(0,0,0,.35);
+      opacity: 0; pointer-events: none; transform: translateY(-10px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .menu-panel.open { opacity: 1; pointer-events:auto; transform: translateY(0); }
+    .menu-panel a {
+      display:block; padding: .95rem 1rem; border-radius: 16px; color: var(--muted); font-size: 1rem;
+      transition: background .18s ease, color .18s ease;
+    }
+    .menu-panel a:hover { background: rgba(255,255,255,.05); color: var(--text); }
+
+    main { padding-bottom: 4rem; }
+    .section { padding: 1rem 0 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:1rem; }
+    .section-head h2 { margin:0; font-size: clamp(2rem, 4.4vw, 4rem); line-height:1; letter-spacing:-.05em; }
+    .section-head p { margin:0; max-width:36rem; color: var(--muted-2); }
+    .section-label { display:inline-block; margin-bottom:.55rem; font-size:.82rem; color:#e8d8cc; letter-spacing:.24em; text-transform:uppercase; }
+
+    .cards { display:grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1rem; }
+    .card { border-radius: var(--radius-lg); overflow:hidden; }
+    .span-8{grid-column:span 8;} .span-7{grid-column:span 7;} .span-6{grid-column:span 6;} .span-5{grid-column:span 5;} .span-4{grid-column:span 4;} .span-12{grid-column:span 12;}
+
+    .music-card { padding: 1rem; }
+    .spotify-frame { width:100%; height:560px; border:0; border-radius: 24px; background:#121212; }
+    .note-card { padding: 2rem; }
+    .note-card h3, .text-card h3, .contact-card h3 { margin: 0 0 .8rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height:1.02; letter-spacing:-.05em; }
+    .note-card p, .text-card p, .contact-card p { margin: 0; color: var(--muted); }
+    .small-list { list-style:none; padding:0; margin:1.35rem 0 0; display:grid; gap:.85rem; }
+    .small-list li { padding-bottom:.85rem; border-bottom:1px solid var(--line-soft); color: var(--muted); }
+    .small-list li:last-child { border-bottom:0; padding-bottom:0; }
+
+    .photo-panel { position:relative; min-height: 640px; }
+    .photo-panel img { width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.96) contrast(1.02); }
+    .photo-panel::after {
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 40%, rgba(15,11,11,.68) 100%);
+      pointer-events:none;
+    }
+    .caption { position:absolute; left:1.3rem; bottom:1.2rem; z-index:1; color:#f3ebe5; font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; }
+    .text-card { padding: 2rem; }
+    .service-list, .bullet-list { list-style:none; margin:1.2rem 0 0; padding:0; }
+    .service-list li, .bullet-list li {
+      display:flex; justify-content:space-between; gap:1rem; padding: 1rem 0; border-bottom:1px solid var(--line-soft);
+      color: var(--muted);
+    }
+    .service-list li:last-child, .bullet-list li:last-child { border-bottom:0; }
+    .service-list span:last-child, .bullet-list span:last-child { color: #f0ddd1; font-size:.84rem; text-transform:uppercase; letter-spacing:.14em; }
+    .chip-wrap { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.2rem; }
+    .chip { padding:.72rem .95rem; border-radius:999px; border:1px solid rgba(255,255,255,.1); color:#f0ddd1; background:rgba(255,255,255,.03); font-size:.92rem; }
+
+    .lyrics-card { padding: 1.5rem 2rem; }
+    details.lyric { border-top:1px solid var(--line-soft); }
+    details.lyric:first-of-type { border-top:0; }
+    details.lyric summary {
+      list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:1rem;
+      padding: 1.2rem 0; font-size:1.15rem; font-weight:700; letter-spacing:-.02em;
+    }
+    details.lyric summary::-webkit-details-marker { display:none; }
+    details.lyric summary::after { content:'+'; width:32px; height:32px; display:grid; place-items:center; border-radius:50%; background:rgba(255,255,255,.06); color:#f0ddd1; flex:none; }
+    details.lyric[open] summary::after { content:'–'; }
+    .lyric__body { columns: 2; column-gap: 2.2rem; color: var(--muted); padding-bottom: .8rem; }
+    .lyric__body p { break-inside: avoid; margin:0 0 1rem; }
+    .lyric__chords { color: #f0ddd1; border-top:1px dashed rgba(255,255,255,.12); padding: .9rem 0 1.2rem; font-size:.95rem; }
+
+    .about-copy { display:grid; gap:1rem; color: var(--muted); }
+    .contact-mail { display:inline-block; margin:.35rem 0 1rem; font-size: clamp(2rem, 4.5vw, 4rem); line-height: 1.04; letter-spacing:-.06em; }
+    .socials { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1.2rem; }
+    .socials a { padding:.85rem 1rem; border-radius:999px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); color:#f0ddd1; font-size:.92rem; }
+    .socials a:hover { background:rgba(255,255,255,.08); }
+
+    footer { padding: 2rem 0 0; color: rgba(246,240,235,.55); font-size:.9rem; text-align:center; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity:1; transform: translateY(0); }
+
+    @media (max-width: 1080px) {
+      .hero-content { padding-top: 3rem; }
+      .hero-title { max-width: 14ch; }
+      .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: span 12; }
+      .photo-panel { min-height: 500px; }
+    }
+    @media (max-width: 740px) {
+      .container { width:min(var(--container), calc(100% - 1rem)); }
+      .hero-inner { padding: 1rem; min-height: 92svh; }
+      .hero-shell, .card { border-radius: 24px; }
+      .hero-content { padding: 2.2rem .4rem 3rem; }
+      .hero-title { font-size: clamp(2.5rem, 9vw, 3.9rem); }
+      .eyebrow { letter-spacing: .22em; font-size: .82rem; }
+      .hero-actions { display:grid; grid-template-columns:1fr; width:100%; }
+      .btn { width:100%; min-width: 0; }
+      .hero-bottom { flex-direction:column; align-items:flex-start; gap:.6rem; }
+      .section-head { flex-direction:column; align-items:flex-start; }
+      .note-card, .text-card, .lyrics-card, .contact-card { padding: 1.35rem; }
+      .lyric__body { columns: 1; }
+      .spotify-frame { height: 500px; }
+      .menu-panel { right: .7rem; width: calc(100% - 1.4rem); top: 4.8rem; }
+    }
+  
+    /* Minimal v2 overrides */
+    .hero-content{gap:.95rem;padding:3rem 1rem 3.8rem}
+    .hero-title{max-width:10ch;font-size:clamp(3.4rem,6.4vw,6.8rem)}
+    .hero-sub{max-width:22ch;font-size:clamp(1.05rem,1.55vw,1.35rem)}
+    .hero-proof,.hero-bottom{display:none}
+    .hero-actions{padding-top:.35rem}
+    .section{padding-top:1.4rem}
+    .section-head{margin-bottom:.75rem}
+    .section-head p{display:none}
+    .section-label{font-size:.74rem;margin-bottom:.35rem}
+    .section-head h2{font-size:clamp(2rem,4vw,3.4rem)}
+    .note-card p,.text-card p,.contact-card p{font-size:.96rem}
+    .small-list{display:none}
+    .service-list li,.bullet-list li{padding:.82rem 0}
+    .chip-wrap{margin-top:.9rem}
+    .chip{font-size:.82rem;padding:.62rem .82rem}
+    .about-copy{gap:.75rem}
+    .about-copy p:not(:first-child){display:none}
+    .lyrics-card{padding:1rem 1.6rem}
+    details.lyric summary{padding:1rem 0}
+    .photo-panel{min-height:560px}
+    footer{padding-top:1.5rem}
+    @media(max-width:740px){
+      .hero-content{padding:2rem .2rem 2.8rem}
+      .hero-title{font-size:clamp(2.7rem,13vw,4.4rem)}
+      .section{padding-top:1rem}
+      .section-head h2{font-size:2.25rem}
+      .note-card,.text-card,.lyrics-card,.contact-card{padding:1.15rem}
+    }
+
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero-wrap">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-overlay"></div>
+          <div class="hero-inner">
+            <div class="hero-top">
+              <div class="brand">Leon Frick</div>
+              <button class="menu-button" id="menuToggle" aria-expanded="false" aria-controls="menuPanel">Menu</button>
+              <nav class="menu-panel" id="menuPanel" aria-label="Hovedmeny">
+                <a href="#musikk">Musikk</a>
+                <a href="#arbeid">Arbeid</a>
+                <a href="#tekster">Tekster</a>
+                <a href="#om">Om</a>
+                <a href="#kontakt">Kontakt</a>
+              </nav>
+            </div>
+
+            <div class="hero-content">
+              <div class="eyebrow">Artist · låtskriver · produsent</div>
+              <h1 class="hero-title">Leon Frick</h1>
+              <p class="hero-sub">Moderne norsk pop fra Bergen.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://open.spotify.com/artist/3bRebLqW1ReX53qn6I3073" target="_blank" rel="noopener">Hør på Spotify</a>
+                <a class="btn btn-ghost" href="mailto:kontakt@leonfrick.no">Kontakt →</a>
+              </div>
+            </div>
+
+            <div class="hero-bottom">
+              <span>Bergen · Leon Frick</span>
+              <span>Spotify · Tekster · Produksjon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="musikk">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-label">Musikk</span>
+            <h2>Hør artistprofilen.</h2>
+          </div>
+
+        </div>
+        <div class="cards">
+          <article class="card glass music-card span-8 reveal">
+            <iframe class="spotify-frame" src="https://open.spotify.com/embed/artist/3bRebLqW1ReX53qn6I3073?utm_source=generator" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Leon Frick på Spotify"></iframe>
+          </article>
+          <article class="card glass note-card span-4 reveal">
+            <span class="section-label">Leon Frick</span>
+            <h3>Pop. Bergen.</h3>
+            <p>Lytt, del eller åpne artistprofilen direkte i Spotify.</p>
+            <div class="hero-actions" style="justify-content:flex-start; margin-top:1.3rem;">
+              <a class="btn btn-primary" href="https://open.spotify.com/artist/3bRebLqW1ReX53qn6I3073" target="_blank" rel="noopener">Åpne Spotify</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="arbeid">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-label">Arbeid</span>
+            <h2>Samarbeid og tjenester.</h2>
+          </div>
+
+        </div>
+        <div class="cards">
+          <article class="card glass photo-panel span-5 reveal">
+            <img src="assets/images/leon-portrait.jpg" alt="Leon Frick står lent mot en vegg med murstein i bakgrunnen." />
+            <div class="caption">Leon Frick</div>
+          </article>
+          <div class="span-7" style="display:grid; gap:1rem;">
+            <article class="card glass text-card reveal">
+              <span class="section-label">Dette gjør jeg</span>
+              <h3>Tjenester.</h3>
+              <ul class="service-list">
+                <li><span>Lydproduksjon</span><span>Studio / release</span></li>
+                <li><span>Låtskriving</span><span>Artist sessions</span></li>
+                <li><span>Miks</span><span>Single / prosjekt</span></li>
+                <li><span>Innspilling</span><span>Vokal / produksjon</span></li>
+                <li><span>Musikk til film</span><span>Innhold / format</span></li>
+              </ul>
+            </article>
+            <article class="card glass text-card reveal">
+              <span class="section-label">Samarbeid</span>
+              <h3>Prosjekter og klienter.</h3>
+
+              <div class="chip-wrap">
+                <span class="chip">NRK Unormal</span>
+                <span class="chip">Mastiff Media</span>
+                <span class="chip">Universal Music Norge</span>
+                <span class="chip">Myreze</span>
+                <span class="chip">Ekstremsportveko</span>
+                <span class="chip">Loki Lydstudio</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tekster">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-label">Tekster</span>
+            <h2>Tekster og akkorder.</h2>
+          </div>
+
+        </div>
+        <article class="card glass lyrics-card reveal">
+          <details class="lyric"><summary>Hun</summary><div class="lyric__body"><p>Hun har en mastergrad<br>Hun har en bil<br>Hun har en stor jævla plan for hvordan livet skal bli<br>Hun har en BSU, fylt opp til randen med spenn<br>Og jeg har ikke en krone igjen</p><p>Hun vil ha en herregård<br>Hun tenker flus<br>Kjeller med biljard<br>Jeg kunne nøgd meg med et korthus<br>Og King Kong mot Godzilla, er ikke noe for hu<br>Hun tar et glass vin, og setter på noe med Hugh.</p><p>Hun tenker sto-o-ort<br>Jeg kaster bort tid til å bli vellykket kar<br>Hun sufflerer meg mer enn de ser i fra baren<br>Får tingene gjo-o-ort<br>Jeg har ikke prioriteringen klar<br>Jeg popper en pils</p><p>Jeg trenger ammunisjon<br>På ambisjonsplan<br>Jeg ser en vag illusjon<br>Av det kalt motstand<br>Det resulterer i dimisjon<br>Om jeg ikke kan ro i land<br>Men så langt øyet mitt kan se<br>Så er det vann</p><p>Hun vil ha en herregård<br>Hun tenker flus<br>Kjeller med biljard<br>Jeg kunne nøgd meg med et korthus<br>Og King Kong mot Godzilla, er ikke noe for hu<br>Hun tar et glass vin, og setter på noe med Hugh.</p><p>Hun vil ha en herregård<br>Hun tenker flus<br>Kjeller med biljard<br>Jeg kunne n-n-n-nøgd meg med et korthus<br>Og King Kong mot Godzilla, er ikke noe for hu<br>Hun tar et glass vin, og setter på noe med Hugh.</p><p>Hun tenker sto-o-ort<br>Jeg kaster bort tid til å bli vellykket kar<br>Hun sufflerer meg mer enn de ser i fra baren<br>Får tingene gjo-o-ort<br>Jeg har ikke prioriteringen klar</p><p>Hun tenker sto-o-ort<br>Jeg kaster bort tid til å bli vellykket kar<br>Hun sufflerer meg mer enn de ser i fra baren<br>Får tingene gjo-o-ort<br>Jeg har ikke prioriteringen klar<br>Jeg popper en pils i fra minibaren</p></div><div class="lyric__chords"><strong>Akkorder:</strong> Dm7 – Hmb5/G – Bb – A/C#</div></details>
+          <details class="lyric"><summary>Smile</summary><div class="lyric__body"><p>Når alle dager er mørke og grå<br>Og tid bare går<br>Timer, dager, år<br>Vann til vin, er hva jeg lager nå, og<br>Ganske fint om jeg klarer å</p><p>Smile<br>Mm-mm-mmm<br>Smile<br>Mm-mm-mmm</p><p>Erfaringer lager noen sår<br>Og tid bare går<br>Hvem var vi, hva når?<br>Ganske kjipt, men har hatt det bra, og<br>Kanskje på tide å ta hatten av og.</p><p>Smile<br>Mm-mm-mmm<br>Smile<br>Mm-mm-mmm</p><p>Kan jeg forandre meg nå?<br>Og tid bare går,<br>Til dagen jeg er gammel og grå<br>Jeg vil bli til mitt beste jeg, for<br>Jeg har ikke tid til noen nesten-greier,<br>Jeg vil</p><p>Smile<br>Mm-mm-mmm<br>Smile<br>Mm-mm-mmm</p><p>Klarer ikke helt å forstå<br>Gi meg råd<br>Hvor er vi hen nå?<br>Skulle gjort alt for å ha deg her, men<br>Tror ikke jeg klarer for svaret er,<br>Jeg vil</p><p>Smile<br>Mm-mm-mmm<br>Smile<br>Mm-mm-mmm-mm</p><p>Når alle dager er mørke og grå<br>Og tid bare går<br>Timer, dager, år<br>Vann til vin, er hva jeg lager nå, og<br>Ganske fint om jeg klarer å</p><p>Smi-i-i-i-le<br>Smi-i-i-i-le<br>Smi-i-i-i-le</p></div><div class="lyric__chords"><strong>Akkorder:</strong> C – Am – F – C</div></details>
+          <details class="lyric"><summary>Byen</summary><div class="lyric__body"><p>Ting blir aldri det samme<br>Som det var, da vi var<br>I den byen, jeg dro fra</p><p>Omkring de tankene lander jeg,<br>På et svar, som bedrar<br>Den lille skyen, jeg flyter på</p><p>Vårt pennal, våre liv<br>Da vi var fulle, sov de<br>Vi lekte best etter ti</p><p>Men nå er vi på overtid<br>Byen falmet slik som vi<br>Fargeriket ble svart hvitt</p><p>Vi malte byen<br>I våre farger, hele byen<br>Vi gjorde store ting i byen<br>Men jeg kunne ikke bli igjen<br>Så jeg dro</p><p>Fra stedet som aldri sover,<br>Med en ny, fantasi<br>Om en by uten minner</p><p>Med blanke ark, dro jeg over<br>Søkte ly, bak en sky<br>I håp om at allting forsvinner</p><p>Vårt pennal, våre liv<br>Når vi var fulle, sov de<br>Lekte best etter ti</p><p>Men nå er vi på overtid<br>Byen falmet slik som vi<br>Fargeriket vårt ble svart og hvitt</p><p>Vi malte byen<br>I våre farger, hele byen<br>Vi gjorde store ting i byen<br>Men jeg kunne ikke bli igjen</p><p>Vi malte byen, byen<br>I våre farger<br>Inne i byen, byen<br>Der sov vi aldri<br>Det er alltid byen, byen<br>Som vil bli igjen, bli igjen<br>For meg</p><p>Vi malte byen<br>I våre farger, hele byen<br>Vi gjorde store ting i byen<br>Men jeg kunne ikke bli igjen<br>Så jeg dro.</p></div><div class="lyric__chords"><strong>Akkorder:</strong> F#/D# – F# – Bm – Bm/C#</div></details>
+          <details class="lyric"><summary>Sjenert</summary><div class="lyric__body"><p>Jeg tar to skritt frem, og jeg snubler litt.<br>Jeg blir så sjarmert av det smilet ditt<br>(woah) – og du ser jeg er sjenert.</p><p>Tenk deg du og jeg på et vakkert sted,<br>men først må jeg spørre deg om du blir med meg dit.</p><p>For du vet jeg er sjenert,<br>og jeg vet jeg burde sagt noe!<br>Men jeg klarer ikke se,<br>at du er interessert<br>Og jeg er bare feig!<br>Men jeg håper at en dag,<br>At du og jeg kan bli noe.<br>Bare du og jeg,<br>for jeg er litt sjenert.</p><p>For to, tre øl hjelper alltid litt!</p><p>Jeg blir så sjarmert av det blikket ditt<br>(woah) – og du vet jeg er sjenert.</p><p>For en, to, tre, ølen renner ned!<br>Jeg vet hvis jeg vil, så kan jeg få deg med meg hjem.</p><p>REF x1</p><p>Så lenge jeg er bare stille,<br>vil du aldri møte meg!<br>Men hvis jeg bare tør å si noe,<br>kanskje blir det deg og meg?</p><p>REF x2</p></div><div class="lyric__chords"><strong>Akkorder:</strong> G – C – Am – Hm – C – D – Em – D</div></details>
+          <details class="lyric"><summary>Metafor</summary><div class="lyric__body"><p>Alt jeg trenger er en<br>Metafor<br>Men bare ett problem,<br>Jeg e'kke så jævla flink med<br>Store ord<br>Men jeg prøver allikevel.</p><p>Jeg har en djevel oppe på skulderen,<br>og han snakker for seg selv.<br>Og huet mitt det snurrer som en karusell.<br>Metafor<br>For å gjøre rent bord.</p><p>Begeret det renner over snart,<br>jeg burde fått det avklart.<br>En dialog med speilet,<br>jeg prøver og jeg feiler.<br>(Sånt skjer)</p><p>Til høy begeistring,<br>for en upolert,<br>litt skolert,<br>segregert diamant som deg.<br>Du e'kke så svak som du tror.<br>Tar det en annen dag,<br>men i dag nøyer jeg meg med en</p><p>Metafor<br>Men bare ett problem,<br>Jeg e'kke så jævla flink med<br>Store ord<br>Men jeg prøver allikevel.</p><p>Jeg har en djevel oppe på skulderen,<br>og han snakker for seg selv.<br>Og huet mitt det snurrer som en karusell.<br>Metafor<br>For å gjøre rent bord.</p><p>Bordet det er rent nå.<br>Midlertidig.<br>Det er greit å lete etter svar,<br>men jeg vil ikke si de.<br>Jeg tenker mye på å åpne meg,<br>men tingen er vil ikke være til bry for deg</p><p>Til lav begeistring<br>for en upolert,<br>litt skolert,<br>segregert diamant som meg<br>Jeg er kanskje så svak som jeg tror<br>Det er kanskje derfor alt jeg sier blir en</p><p>Metafor<br>Men bare ett problem,<br>Jeg e'kke så jævla flink med<br>Store ord<br>Men jeg prøver allikevel.</p><p>Jeg har en djevel oppe på skulderen,<br>og han snakker for seg selv.<br>Og huet mitt det snurrer som en karusell.<br>Metafor<br>For å gjøre rent bord.</p><p>Og det er lang vei ned<br>til mine røtter.<br>Jeg vil fortelle, men jeg får som regel kalde føtter.<br>Og jeg er keen på å åpne meg,<br>men greia er jeg tror ikke du er bra for meg.</p><p>Til lav begeistring for en litt genetisk,<br>patetisk,<br>frenetisk idiot som deg.<br>Jeg er ikke så svak som du tror.<br>Det er sikkert derfor alt jeg sier blir en</p><p><em>Mellomspill</em></p><p>Metafor<br>Men bare ett problem,<br>Jeg e'kke så jævla flink med<br>Store ord<br>Men jeg prøver allikevel.</p><p>Jeg har en djevel oppe på skulderen,<br>og han snakker for seg selv.<br>Og huet mitt det snurrer som en karusell.<br>Metafor<br>For å gjøre rent bord.</p></div><div class="lyric__chords"><strong>Akkorder:</strong> F/E – D/F# – F – C – D · F/E – D/F# – F – C – D · Em – Em/D# – C – A · F/E – D/F# – F – A</div></details>
+          <details class="lyric"><summary>La meg tenke – akkorder</summary><div class="lyric__body"><p>Chord sheet tilgjengelig for øving og fremføring.</p></div><div class="lyric__chords"><strong>Akkorder:</strong> F#/H – C# – F#/D# – F# – G#m – C#/B – Hm</div></details>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="om">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-label">Om</span>
+            <h2>Artistprofil.</h2>
+          </div>
+
+        </div>
+        <div class="cards">
+          <article class="card glass text-card span-12 reveal">
+            <div class="about-copy">
+              <p>Leon Frick er artist, låtskriver og produsent fra Bergen. Musikken ligger i skjæringspunktet mellom pop, hiphop, gospel og funk — melodisk, energisk og med glimt i øyet.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-label">Kontakt</span>
+            <h2>Booking, sessions og samarbeid.</h2>
+          </div>
+
+        </div>
+        <div class="cards">
+          <article class="card glass contact-card text-card span-7 reveal">
+            <span class="section-label">E-post</span>
+            <a class="contact-mail" href="mailto:kontakt@leonfrick.no">kontakt@leonfrick.no</a>
+            <p><a href="https://www.lokilyd.no/" target="_blank" rel="noopener">Loki Lydstudio ↗</a></p>
+          </article>
+          <article class="card glass text-card span-5 reveal">
+            <span class="section-label">Følg med</span>
+            <h3>Socials.</h3>
+
+            <div class="socials">
+              <a href="https://twitter.com/LeonFrick" target="_blank" rel="noopener">X / Twitter</a>
+              <a href="https://www.instagram.com/leonfrick/" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://www.facebook.com/pages/Leon-Frick/177758225603444" target="_blank" rel="noopener">Facebook</a>
+              <a href="https://open.spotify.com/artist/3bRebLqW1ReX53qn6I3073" target="_blank" rel="noopener">Spotify</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">© <span id="year"></span> Leon Frick</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    menuToggle.addEventListener('click', () => {
+      const open = menuPanel.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', (event) => {
+      if (!menuPanel.contains(event.target) && !menuToggle.contains(event.target)) {
+        menuPanel.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    menuPanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuPanel.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
