@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Personvernerklæring for iOS-appen Hvit Måned.">
+  <link rel="canonical" href="https://leonfrick.no/hvitmaaned/privacypolicy.html">
+  <title>Personvernerklæring – Hvit Måned</title>
+  <style>
+    :root {
+      --bg: #f6efe2;
+      --surface: rgba(255, 255, 255, 0.72);
+      --text: #24170d;
+      --muted: #705d4c;
+      --line: rgba(72, 45, 22, 0.14);
+      --accent: #a95f0a;
+      --shadow: 0 22px 70px rgba(65, 37, 11, 0.10);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #120c08;
+        --surface: rgba(37, 24, 15, 0.82);
+        --text: #fff8e9;
+        --muted: #ccbba7;
+        --line: rgba(255, 239, 213, 0.12);
+        --accent: #ffc15b;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255, 193, 91, 0.18), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+    }
+
+    main {
+      width: min(760px, calc(100% - 32px));
+      margin: 48px auto;
+      padding: clamp(28px, 6vw, 64px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 760;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 7vw, 3.8rem);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+    }
+
+    .lead {
+      max-width: 58ch;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .summary {
+      margin: 34px 0;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 193, 91, 0.08);
+    }
+
+    .summary strong { color: var(--accent); }
+
+    section {
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.22rem;
+      letter-spacing: -0.015em;
+    }
+
+    p { margin: 0 0 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.3rem;
+    }
+
+    li { margin: 7px 0; }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .meta {
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 520px) {
+      main {
+        width: min(100% - 20px, 760px);
+        margin: 10px auto;
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Hvit Måned</p>
+    <h1>Personvernerklæring</h1>
+    <p class="lead">
+      Denne personvernerklæringen forklarer hvordan iOS-appen Hvit Måned behandler informasjon.
+      Hvit Måned er laget med personvern som utgangspunkt og krever verken konto eller innlogging.
+    </p>
+
+    <div class="summary">
+      <strong>Kort fortalt:</strong> Appens opplysninger behandles lokalt på enheten. Utvikleren mottar
+      ikke informasjon om fremgangen din, alkoholvanene dine, pengeforbruket ditt eller bevegelsene til telefonen.
+    </div>
+
+    <section>
+      <h2>1. Hvilke opplysninger appen bruker</h2>
+      <p>For at funksjonene skal virke, kan appen lagre følgende lokalt på enheten:</p>
+      <ul>
+        <li>starttidspunkt og status for den pågående 30-dagersperioden</li>
+        <li>fremgang og registrerte milepæler</li>
+        <li>et valgfritt anslag for ukentlig pengebruk på alkohol, brukt til å beregne sparing</li>
+        <li>valgt tema og andre appinnstillinger</li>
+        <li>informasjon som gjør at widgeten kan vise riktig fremgang</li>
+      </ul>
+      <p>Opplysningene knyttes ikke til navn, e-postadresse, telefonnummer eller en brukerkonto.</p>
+    </section>
+
+    <section>
+      <h2>2. Lokal lagring og widget</h2>
+      <p>
+        Data lagres i appens lokale lagringsområde og i en delt App Group-beholder som brukes av
+        hovedappen og Hvit Måned-widgeten. Denne delingen skjer internt på enheten og brukes bare
+        for å vise timer, fremgang, tema og relaterte appfunksjoner.
+      </p>
+      <p>Utvikleren har ikke tilgang til disse lokale dataene.</p>
+    </section>
+
+    <section>
+      <h2>3. Bevegelsessensorer og gyroskop</h2>
+      <p>
+        Appen bruker bevegelsesdata fra enheten mens appen er åpen, slik at skum, væske og bobler
+        kan reagere visuelt når telefonen beveges. Bevegelsesdata behandles i sanntid på enheten,
+        lagres ikke av appen og sendes ikke til utvikleren eller andre.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Varsler</h2>
+      <p>
+        Dersom du tillater varsler, kan appen planlegge lokale motivasjons- og milepælsvarsler.
+        Varslene opprettes og håndteres på enheten. Hvit Måned bruker ikke en ekstern server for
+        å sende pushvarsler.
+      </p>
+      <p>
+        Du kan endre eller trekke tilbake varslingstillatelsen når som helst i iOS under
+        <em>Innstillinger → Varslinger → Hvit Måned</em>.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Deling</h2>
+      <p>
+        Appens delefunksjon åpner Apples standard delingsark slik at du selv kan velge en app eller
+        mottaker. Hvit Måned mottar ikke informasjon om hvem du deler med. Tjenesten du velger å dele
+        gjennom, kan behandle informasjon etter sine egne personvernvilkår.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Ingen sporing, annonser eller analyse</h2>
+      <p>Den nåværende versjonen av Hvit Måned:</p>
+      <ul>
+        <li>viser ikke annonser</li>
+        <li>bruker ikke analyse- eller sporingsverktøy</li>
+        <li>oppretter ikke en brukerprofil</li>
+        <li>selger eller deler ikke personopplysninger</li>
+        <li>sender ikke appdata til utviklerens servere</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Lagringstid og sletting</h2>
+      <p>
+        Lokale opplysninger beholdes så lenge de er nødvendige for appens funksjoner. Du kan nullstille
+        den aktive perioden med funksjonen <em>Start på nytt</em>. Du kan fjerne appdata ved å slette
+        Hvit Måned fra enheten. Eventuelle enhetskopier som administreres av Apple, styres av dine egne
+        iCloud- og sikkerhetskopiinnstillinger.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Barn</h2>
+      <p>
+        Hvit Måned er ikke utviklet eller markedsført som en tjeneste for barn. Appen samler uansett
+        ikke bevisst inn personopplysninger fra brukere.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Endringer i erklæringen</h2>
+      <p>
+        Denne erklæringen kan bli oppdatert dersom appens funksjoner eller databehandling endres.
+        Gjeldende versjon publiseres alltid på denne siden, med ny dato for siste oppdatering.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Kontakt</h2>
+      <p>
+        Spørsmål om personvern eller Hvit Måned kan sendes via nettstedet
+        <a href="https://leonfrick.no/">leonfrick.no</a>.
+      </p>
+    </section>
+
+    <p class="meta">Sist oppdatert: 6. august 2026</p>
+  </main>
+</body>
+</html>
